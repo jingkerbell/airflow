@@ -4,18 +4,18 @@ import pendulum
 from airflow.operators.bash import BashOperator
 
 with DAG(
-    dag_id="dags_bash_operator",
-    schedule="0 0 * * *",
-    start_date=pendulum.datetime(2024, 4, 9, tz="Asia/Seoul"),
+    dag_id="dags_bash_select_fruit",
+    schedule="10 0 * * 6#1",
+    start_date=pendulum.datetime(2024, 4, 15, tz="Asia/Seoul"),
     catchup=False
 ) as dag:
-    bash_t1 = BashOperator(
-        task_id="bash_t1",
-        bash_command="echo whoami",
+    t1_orange = BashOperator(
+        task_id="t1_orange",
+        bash_command="/opt/airflow/plugins/shell/select_fruit.sh ORANGE",
     )
-    bash_t2 = BashOperator(
-        task_id="bash_t2",
-        bash_command="echo $HOSTNAME",
+    t2_avocado = BashOperator(
+        task_id="t2_avocado",
+        bash_command="/opt/airflow/plugins/shell/select_fruit.sh avocado",
     )
 
-    bash_t1 >> bash_t2
+    t1_orange >> bvash_t2
