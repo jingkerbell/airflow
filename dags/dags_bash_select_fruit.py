@@ -18,4 +18,4 @@ with DAG(
         bash_command="/opt/airflow/plugins/shell/select_fruit.sh avocado",
     )
 
-    t1_orange >> bvash_t2
+    t1_orange >> t2_avocado
