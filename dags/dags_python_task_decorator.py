@@ -1,5 +1,5 @@
-from pprint import pprint
 import pendulum
+from airflow import DAG
 from airflow.decorators import task
 
 with DAG(
