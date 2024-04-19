@@ -17,4 +17,4 @@ with DAG(
         op_args=['hjkim','man','kr','seoul']
     )
 
-    regist_t1
+regist_t1
